@@ -1,1 +1,2 @@
-# Group4-Canvas
+# canvas-app
+Accelerate Online Paint Group Project
