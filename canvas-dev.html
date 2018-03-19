@@ -18,11 +18,13 @@
             <section class="container-button">
                 <div class="row">
                     <div class="btn-group-vertical">
-                        <span class="btn btn-primary fa fa-square" id="drawing-rectangle">Drawing Rectangle</span>
-                        <span class="btn btn-info fa fa-paint-brush" id="drawing-line">Drawing Line</span>
-                        <span class="btn btn-info fa fa-paint-brush" id="drawing-ribbon">Drawing Ribbon</span>
-                        <span class="btn btn-info fa fa-paint-brush" id="drawing-circle">Drawing Circle</span>
-                        <span class="btn btn-info fa fa-paint-brush" id="eraser" >Eraser</span>
+                        <span class="btn btn-info" id="drawing-ribbon">Drawing Ribbon</span>
+                        <span class="btn btn-info" id="drawing-rectangle">Drawing Rectangle</span>
+                        <span class="btn btn-info" id="drawing-rectangle-hollow">Hollow rectangle</span>
+                        <span class="btn btn-info" id="drawing-line">Drawing Line</span>
+                        <span class="btn btn-info" id="drawing-circle">Drawing Circle</span>
+                        <span class="btn btn-info" id="drawing-circle-hollow">Hollow Circle</span>
+                        <span class="btn btn-info" id="eraser">Eraser</span>
                         <span class="btn btn-info fa fa-upload" id="upload-img" >Upload Image</span>
                     </div>
                 </div>
@@ -31,7 +33,7 @@
             </div>
     <div class="container-picker">
         <label for="color-input" id="color-label" style="background-color: red"></label>
-        <input type="checkbox" id="color-input" checked></input>
+        <input type="checkbox" id="color-input" unchecked></input>
     
         <div id="color-picker">
             <canvas id="color-block" height="100" width="100"></canvas>
@@ -44,7 +46,7 @@
 </div>
 <section>
         <!-- <input type="file" id="input" onchange="handleFiles(this.files)"> -->
-        <label>Image File:</label><br/>
+        <label></label><br/>
         <input type="file" id="imageLoader" name="imageLoader"/>
         <canvas id="imageCanvas"></canvas>
 </section>
@@ -53,14 +55,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type='text/javascript' src="assets/canvas-common.js"></script>
+        <script type='text/javascript' src="assets/drawing-ribbon.js"></script>
         <script type='text/javascript' src="assets/drawing-line.js"></script>
         <script type='text/javascript' src="assets/drawing-rectangle.js"></script>
-        <script type='text/javascript' src="assets/drawing-ribbon.js"></script>
+        <script type='text/javascript' src="assets/drawing-rectangle-hollow.js"></script>
         <script type='text/javascript' src="assets/drawing-circle.js"></script>
+        <script type='text/javascript' src="assets/drawing-circle-hollow.js"></script>
         <script type='text/javascript' src="assets/eraser.js"></script>
         <script type='text/javascript' src="assets/color-picker.js"></script>
         <script type='text/javascript' src="assets/main.js"></script>
-        <script type='text/javascript' src="assets/upload-img.js"></script> 
+        <!-- <script type='text/javascript' src="assets/upload-img.js"></script>  -->
     </body>
 </html>
 
