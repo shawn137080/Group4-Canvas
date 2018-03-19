@@ -25,32 +25,32 @@
                         <span class="btn btn-info" id="drawing-circle">Drawing Circle</span>
                         <span class="btn btn-info" id="drawing-circle-hollow">Hollow Circle</span>
                         <span class="btn btn-info" id="eraser">Eraser</span>
-                        <span class="btn btn-info fa fa-upload" id="upload-img" >Upload Image</span>
+                        <span class="btn btn-info fa fa-upload" id="upload-img">Upload Image</span>
                     </div>
                 </div>
             </section>
         <!-- color-picker -->
-            </div>
     <div class="container-picker">
-        <label for="color-input" id="color-label" style="background-color: red"></label>
-        <input type="checkbox" id="color-input" unchecked></input>
+        <label for="color-input" id="color-label" style="background-color: red">
+        <input type="checkbox" id="color-input" checked></input>
+        </label>
     
         <div id="color-picker">
             <canvas id="color-block" height="100" width="100"></canvas>
             <canvas id="color-strip" height="100" width="30"></canvas>
-        </div> 
-</div>
-        <div id="canvas-container">
-            <canvas id="canvas-real" class="canvas" width='800px' height='400px'></canvas>
-            <canvas id="canvas-draft" class="canvas" width='800px' height='400px'></canvas>
-</div>
+        </div>
+    </div>
+    <div id="canvas-container">
+        <canvas id="canvas-real" class="canvas" width='800px' height='400px'></canvas>
+        <canvas id="canvas-draft" class="canvas" width='800px' height='400px'></canvas>
+    </div>
 <section>
-        <!-- <input type="file" id="input" onchange="handleFiles(this.files)"> -->
-        <label></label><br/>
-        <input type="file" id="imageLoader" name="imageLoader"/>
-        <canvas id="imageCanvas"></canvas>
+    <!-- <input type="file" id="input" onchange="handleFiles(this.files)"> -->
+    <label></label>
+    <br/>
+    <input type="file" id="imageLoader" name="imageLoader" />
+    <canvas id="imageCanvas"></canvas>
 </section>
-
         <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

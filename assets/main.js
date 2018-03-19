@@ -21,14 +21,14 @@
     currentFunction = new DrawingCircleHollow (contextReal,contextDraft);
     });
     $('#color-label').click(function(){
-    $('#color-input').prop(unchecked,false);
-    //$('#color-picker').toggle();//
+        $('#color-picker').show()
     });
+    $('#color-label').dblclick(function(){
+        $('#color-picker').hide()
+    });
+    currentFunction = new DrawingRectangle(contextReal,contextDraft);
     // $('#upload-img').click(()=>{
     // currentFunction = new FileReader (contextReal,contextDraft);
     // });
-    //trying to do show/hide for the color-picker
-    //var colLabel = document.getElementById('color-label')
-    //colLabal.click()
 
-    currentFunction = new DrawingRectangle(contextReal,contextDraft);
+   
