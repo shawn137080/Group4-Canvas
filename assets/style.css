@@ -3,22 +3,23 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: whitesmoke;
+    max-width: 800px;
 }
 .canvas{
     background-color: white;
-    border:1px black dotted;
+    border:1px black;
     position:absolute;
-    top:180px;
-    bottom:0px;
-    left:200px;
-    right:0px
 }
+
 #canvas-draft{
     background-color: transparent;
 }
-#canvas-container{
-    height:550px;
-} 
+#button-box {
+    width: 120px;
+}
+#picker-box {
+    height : 100px;
+}
 .container-button {
     position: absolute;
     padding: 20px 0 0 20px;
