@@ -68,9 +68,9 @@ $(window).mouseup(function(e){
         $('#rotate-slider').slider({value: 0});
         $("#rotate_field").text(0);
         $("#rotate_field").val(0);
-    //  $('imagebrush-rotation-slider').slider({value: 0});
-    //  $("#image_degree_field").text(0);
-    //  $("#image_degree_field").val(0);
+        $('imagebrush-rotation-slider').slider({value: 0});
+        $("#image_degree_field").text(0);
+        $("#image_degree_field").val(0);
     }
 });
 

@@ -10,13 +10,12 @@ body{
     height: 100%;
     width: 150px;
     margin: 0px;
-    background: rgb(180, 239, 255);
+    background: rgb(248, 215, 209);
 }
 
 #canvas-container{
     position: absolute;
 }
-
 #control-board .col-lg-12 {
     padding: 10px 0px 10px 0px;
     border: 1px solid black;
@@ -56,7 +55,7 @@ body{
 .option-box{
     padding: 0px 0px 0px 50px;
     margin-left: 150px;
-    background: rgb(191, 236, 248);
+    background: rgb(248, 215, 209);
     height: 120px;
 }
 .option-box div{
@@ -82,10 +81,10 @@ input{
 }
 
 .btn-default{
-    background-color: rgb(156, 226, 238);
+    background-color: rgb(238, 232, 230);
 }
 .btn-default:hover{
-    background-color: rgb(48, 248, 231);
+    background-color: rgb(243, 205, 199);
 }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -105,7 +104,7 @@ body {
 } 
 #color-input:checked ~ #color-picker {
   opacity: 1;
-}
+} 
 #color-picker {
   position: absolute;
     right: 25px;

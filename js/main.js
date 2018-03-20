@@ -6,11 +6,11 @@ $(window).on('load', function(){
     
 
     //Hiding current buttons or rotation
-    $('#cancel').hide();
-    $('#print').hide();
+    // $('#cancel').hide();
+    // $('#print').hide();
     $('#rotate-slider-bar').hide();
     $("#imagebrush-rotation-slider-bar").hide();
-    $('#text-input').draggable().hide();
+    // $('#text-input').draggable().hide();
     
     //Set the size for the canvas
     let canvas_width = ($(window).width()-controlboardWidth)*canvasCoverage;
@@ -74,22 +74,20 @@ $(window).on('load', function(){
         step: 5,
         animate: true,
         slide: function(event, ui){
-            $("#image_degree_field").text(ui.value);
-            $("#image_degree_field").val(ui.value);
-            currentFunction.onImageRotate(ui.value);
-        }
-
-        
+        $("#image_degree_field").text(ui.value);
+        $("#image_degree_field").val(ui.value);
+        currentFunction.onImageRotate(ui.value);
+        }  
     });
-
-    //drawing function
-    currentFunction = new DrawingLineSmooth(contextReal,contextDraft, canvas_log);
     
     $(window).click(()=>{
         if (currentFunction.constructor.name !== "BoardEdge" && currentFunction.constructor.name !=="EEdge"){
-            $("#imagebrush-rotation-slider-bar").hide();
+        $("#imagebrush-rotation-slider-bar").hide();
         }    
     })
+    //drawing function
+    currentFunction = new DrawingLineSmooth(contextReal,contextDraft, canvas_log);
+
     $('#drawing-rectangle-hollow').click(()=>{
         currentFunction = new DrawingRectangleHollow(contextReal,contextDraft, canvas_log);
     });
@@ -116,10 +114,12 @@ $(window).on('load', function(){
     });
     $('#e-edge').click(()=>{
         currentFunction = new EEdge(contextReal,contextDraft, canvas_log);
+        //function below has bugs 
         $("#imagebrush-rotation-slider-bar").show()
     });
     $('#board-edge').click(()=>{
         currentFunction = new BoardEdge(contextReal,contextDraft, canvas_log);
+        //function below has bugs 
         $("#imagebrush-rotation-slider-bar").show()
     });
     $('#insert-text').click(()=>{
@@ -131,6 +131,12 @@ $(window).on('load', function(){
     $('#selector').click(()=>{
         currentFunction = new Selector(contextReal,contextDraft, canvas_log);
     });
+    $('#color-label').click(function(){
+        $('#color-picker').show()
+    });
+    $('#color-label').dblclick(function(){
+        $('#color-picker').hide()	
+    });
     $('#clear').click(()=>{
         contextReal.save();
         contextReal.fillStyle = contextDraft.fillStyle = "#FFFFFF";
@@ -138,13 +144,25 @@ $(window).on('load', function(){
         contextReal.fill();
         contextReal.restore();
     });
-    $('#undo').click(()=>{
-        canvas_log.undo();
+     $('#undo').click(()=>{
+       canvas_log.undo();
     });
     $('#redo').click(()=>{
         canvas_log.redo();
     });
+    $(document).ready(function() {
 
+        $('#brush-button').click(function(){
+            $('#brush-icons').toggle();
+        });
+        $('#line-button').click(function(){
+            $('#line-icons').toggle();
+        });
+        $('#shape-button').click(function(){
+            $('#shape-icons').toggle();
+        });
+
+    });
      //Reset and hide input box when current function change
 
     
@@ -209,6 +227,4 @@ $(window).on('resize', ()=>{
 
     //Clear Real canvas screen
     contextReal.clearRect(0,0,$('#canvas-real').width(), $('#canvas-real').height());
-
-
 });
