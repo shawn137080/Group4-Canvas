@@ -1,0 +1,250 @@
+/* Body setup */
+body{
+    font-size: 18px;
+    font-family: 'Indie Flower', cursive;
+    background: rgba(187, 214, 156, 0.767);
+    color: black;
+}
+
+/*mobile box*/
+#mobile-box{
+    width: 100%;
+    height: 0px;
+    display: none;
+}
+/*End mobile box*/
+
+/*Slider*/
+.ui-slider{
+    display:inline-block;
+}
+
+.ui-slider .ui-slider-handle{
+    width:15px; 
+    height:30px;
+    border: 1px solid black;
+}
+
+#size-slider{
+    width: 100px;
+}
+
+#rotate-slider{
+    width: 80px;
+}
+
+#size_field{
+    margin-left: 5px;
+}
+
+#rotate_field{
+    margin-left: 5px;
+}
+/*End Slider*/
+
+/*Options*/
+#options{
+    border: none !important;
+}
+
+#options .col-lg-12.col-md-12.col-sm-12{
+    border: none;
+    padding: 10px 10px 0px 20px;
+}
+
+
+#color-input-stroke, #color-input-fill, #color-input-text{
+    display: none;
+}
+
+#color-label-stroke{
+    margin: 0px;
+    height: 30px;
+    width: 30px;
+    margin-right: 30px;
+} 
+
+#color-label-fill{
+    margin: 0px;
+    height: 30px;
+    width: 30px;
+    margin-right: 0px;
+} 
+
+#color-label-text{
+    margin: 0px;
+    height: 30px;
+    width: 30px;
+    margin-right: 50px;
+} 
+
+#color-picker {
+    padding: 0px;
+    background: transparent;
+    height: 110px;
+    width: 150px;
+}
+#color-picker canvas:hover {
+    cursor: crosshair;
+}  
+/*End Options*/
+
+
+/*Control Board and related function*/
+#control-board{
+    position: absolute;
+    height: 100%;
+    width: 220px;
+    margin: 0px;
+    background: rgb(180, 239, 255);
+    border-right: 1px solid black;
+}
+
+#control-board div{
+    background: transparent;
+}
+
+#control-board .col-lg-12 {
+    padding: 10px 0px 10px 0px;
+    border: 1px solid black;
+    text-align: center;
+    font-weight: 600;
+    outline: none;
+}
+
+#control-board .fa{
+    padding: 2px 0px 2px 0px;
+    text-align: center;
+    font-weight: 600;
+    outline: none;
+    font-size: 23px;
+    background-color: transparent;
+    border: none;
+}
+#control-board .col-lg-6{
+    padding: 5px 0px 5px 0px;
+    border: 1px solid black;
+    text-align: center;
+    font-weight: 600;
+    outline: none;
+} 
+
+#control-board .btn-secondary a{
+    text-decoration: none;
+    color: black;
+}
+
+.functions-holder div{
+    border: none;
+}
+/*End Control Board and related function*/
+
+/*Canvas Container and related item*/
+#canvas-container{
+    position: absolute;
+}
+
+.canvas {
+    position: absolute; 
+    border: 2px dotted;
+}
+
+/* End Canvas Container and related item*/
+
+.control_pt{
+    height: 15px; 
+    width: 15px; 
+    border-radius: 50%;
+    background: rgba(128, 128, 128);
+}
+
+/* Input text box CSS*/
+input{
+    height: 50px;
+    width: 200px;
+}
+/* End Input text box CSS*/
+
+
+#text-input{
+    white-space: pre-wrap;
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+/*setting for screen size below 768px*/
+@media screen and (max-width:768px){
+    body{
+        font-size: 1.4em;
+    }
+
+    #control-board{
+        display:none;
+        width: 0px;
+    }
+
+    #mobile-box{
+        width: 100%;
+        height: 100px;
+        background: rgba(128, 128, 128, 0.712);
+        display: inline-block;
+    }
+
+    #mobile-box i {
+        background: transparent;
+        border: none;
+        font-size: 1.2em;
+    }
+
+    #size-slider-mobile{
+        width: 10vw;
+        height: 10px;
+    }
+    
+    #rotate-slider-mobile{
+        width: 10vw;
+        height: 10px;
+    }
+    
+    #size_field-mobile{
+        margin-left: 10px;
+    }
+    
+    #rotate_field-mobile{
+        margin-left: 10px; 
+    }
+
+    #size_field-mobile span{
+        font-size: 0.05vw;
+    }
+
+    #rotate_field-mobile span{
+        font-size: 20px;
+    }
+    .ui-slider .ui-slider-handle{
+        width:10px; 
+        height:20px;
+        left: 15px;
+        border: 1px solid black;
+    }
+
+    /*Stop the mobile from scrolling*/
+    #canvas-container {
+        min-height: 100%;
+        min-width: 100%;
+        overflow: hidden;
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        touch-action: none;
+        -ms-touch-action:none;
+        -webkit-touch-action:none;
+    }
+
+}
+
