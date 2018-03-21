@@ -7,6 +7,17 @@ Judith
 Sean
 Jesse
 
+Updated - 22Mar (Early Hours)
+
+Completed:
+1. Stripped down code (no more action log file, undo, redo)
+2. Organized JS files
+
+Still need to do:
+1. Brush is still not taking the color (consider changing the brush)
+2. Ellipse?
+3. Browser compatibility (does not work on Firefox), and mobile (Hammer.js)
+4. Other features on the "Premium" functions below.
 
 Discussion notes on functionality:
 Minimum Viable Product (MVP):
@@ -18,7 +29,7 @@ Minimum Viable Product (MVP):
 5. Eraser
 6. Draft Layer + Canvas layer (simple)
 
-Premium Product:
+Premium Functions:
 1. Cookie Cutter (select area & only edit within)
 2. Image filter function (a) Upload Image (b) Filters
 3. Template make-up / make-over
