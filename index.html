@@ -30,7 +30,7 @@
 
     <div class="container-fluid" id="control-board"> <!--Try to put all the control stuff inside here -->
         <div class="col-lg-12 btn-default" id="brush-button">Brush</div>
-    <div class="col-lg-12" id="brush-icons" style="display:none">
+    <div class="col-lg-12" id="brush-icons">
             <div class="col-lg-4 fas fa-paint-brush fa-lg" id="drawing-line-smooth" aria-hidden="true"></div>
             <div class="col-lg-4 fas fa-pencil-alt fa-lg" id="e-edge" aria-hidden="true"></div>
             <div class="col-lg-4 fas fa-paint-brush fa-lg" id="board-edge" aria-hidden="true"></div>
@@ -38,62 +38,27 @@
     </div>
 
         <div class="col-lg-12 btn-default" id="line-button">Line & curve</div>
-    <div class="col-lg-12" id="line-icons" style="display:none">
+    <div class="col-lg-12" id="line-icons">
             <i class="fas fa-minus fa-lg" id="draw-s-line3" aria-hidden="true"></i>
             <i class="fas fa-arrows-alt-h fa-lg" id="quad-curve" aria-hidden="true"></i>
             <i class="fas fa-bolt fa-lg" id="bezier-curve" aria-hidden="true"></i>
-            <!-- empty function -->
-            <!-- <i class="fa fa-minus btn btn-default" id="" aria-hidden="true"></i> -->
+
     </div>
     <div class="col-lg-12 btn-default" id="shape-button">Shape</div>
-    <div class="col-lg-12" id="shape-icons"style="display:none">
+    <div class="col-lg-12" id="shape-icons">
             <i class="far fa-square fa-lg" id="drawing-rectangle-hollow" aria-hidden="true"></i>
             <i class="fas fa-square fa-lg" id="drawing-rectangle" aria-hidden="true"></i>
             <i class="fas fa-circle-notch fa-lg" id="drawing-circle-hollow" aria-hidden="true"></i>
             <i class="fas fa-circle fa-lg" id="drawing-circle" aria-hidden="true"></i>
         </div>
     <div class="container-fluid">    
-    <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 btn-default" id="insert-text"><i class="fa fa-header" aria-hidden="true"></i></div>  -->
     <div class="col-lg-12 btn-default" id="eraser"><i class="fas fa-eraser fa-lg" aria-hidden="true"></i></div>
-
-    <!-- <div class="col-lg-6  col-md-6 col-sm-6 col-xs-12 btn-default" id="undo"><i class="fas fa-undo fa-lg" aria-hidden="true"></i></div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 btn-default" id="redo"><i class="fas fa-redo fa-lg" aria-hidden="true"></i></div> -->
-    
-    <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 btn-default" id="">FIll</div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 btn-default" id="">None</div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 btn-default" id="">BORDER</div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 btn-default" id="">none</div> -->
     </div>
     <div class="col-lg-12 btn-default" id="clear"><i class="fas fa-trash-alt fa-lg" aria-hidden="true"></i></div>  
-    <!-- <div class="col-lg-12 btn-default" id="cancel"><i class="fa fa-times btn btn-default" aria-hidden="true"></i></div>
-    <div class="col-lg-12 btn-default" id="print"><i class="fa fa-files-o btn btn-default" aria-hidden="true"></i></div> -->
     
    
 </div>
- <!-- container -->
  
-   <!-- hide old buttons with id -->
-            <div class="old-buttons" style="display:none">
-        <div class="col-lg-12 btn-secondary" id="drawing-rectangle-hollow">Rectangle</div>
-        <div class="col-lg-12 btn-secondary" id="drawing-line-smooth">Line Smooth</div>
-        <div class="col-lg-12 btn-secondary" id="draw-s-line3">Straight Line</div>
-        <div class="col-lg-12 btn-secondary" id="quad-curve" > 3 pt curve</div>
-        <div class="col-lg-12 btn-secondary" id="bezier-curve" > 4 pt curve</div>
-        <!-- <div class="col-lg-12 btn-secondary" id="drawing-circle2">Circle</div>
-        <div class="col-lg-12 btn-secondary" id="drawing-ellipse">Ellipse</div> -->
-        <div class="col-lg-12 btn-secondary" id="insert-text">Text</div>
-        <div class="col-lg-12 btn-secondary" id="e-edge">E-Edge</div>
-        <div class="col-lg-12 btn-secondary" id="board-edge">Board Edge</div>
-        <div class="col-lg-12 btn-secondary" id="eraser" >Erase</div>
-        <div class="col-lg-12 btn-secondary" id="clear" >Clear Screen</div>
-        <div class="col-lg-12 btn-secondary" id="undo" >Undo</div>
-        <div class="col-lg-12 btn-secondary" id="redo" >Redo</div>
-        <!-- <div class="col-lg-12 btn-secondary" id="cancel" >Cancel</div>
-        <div class="col-lg-12 btn-secondary" id="print" >Print</div> -->
-    </div>
-    
-
     <div id="canvas-container">
         <canvas id="canvas-real" class="canvas"></canvas>
         <canvas id="canvas-draft" class="canvas"></canvas>
@@ -106,16 +71,7 @@
             <br>
             <span>Size : </span><span id="size_field" value="5">5</span><span>px</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" id="rotate-slider-bar">
-            <div id="rotate-slider"></div>
-            <br>
-            <span>Rotate : </span><span id="rotate_field" value="0">0</span><span>degree</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" id="imagebrush-rotation-slider-bar" >
-            <div id="imagebrush-rotation-slider"></div>
-            <br>
-            <span>Font-degree : </span><span id="image_degree_field" value="0">0</span>
-        </div>
+ 
 
         <!-- color picker -->
         <div class="picker" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -129,26 +85,26 @@
     </div>
     
 
-    <!-- input box for text-->
-    <!-- <input type="text" id="input-box" autofocus name="insert-text" value="" style="display: none; z-index: 1; border: 1px dashed grey; height: 5%; width:15%; position: absolute; font: 30px Arial" > -->
-    
 
     <!-- all JS function used in the canvas app -->
     <script type='text/javascript' src="js/main.js"></script>
     <script type='text/javascript' src="js/canvas-common.js"></script>
     <script type='text/javascript' src="js/actionlog.js"></script>
-    <script type='text/javascript' src="js/drawing-line-smooth.js"></script>
-    <script type='text/javascript' src="js/draw-s-line3.js"></script>
-    <script type='text/javascript' src="js/quad-curve.js"></script>
-    <script type='text/javascript' src="js/bezier-curve.js"></script>
-    <script type='text/javascript' src="js/drawing-rectangle-hollow.js"></script>
-    <script type='text/javascript' src="js/drawing-rectangle.js"></script>
-    <script type='text/javascript' src="js/drawing-circle-hollow.js"></script>
-    <script type='text/javascript' src="js/drawing-circle.js"></script>
+
+    <script type='text/javascript' src="js/Brush/drawing-line-smooth.js"></script>
+    <script type='text/javascript' src="js/Brush/nib-boardEdge.js"></script>
+    <script type='text/javascript' src="js/Brush/nib-eEdge.js"></script>
+
+    <script type='text/javascript' src="js/Line/draw-s-line3.js"></script>
+    <script type='text/javascript' src="js/Line/quad-curve.js"></script>
+    <script type='text/javascript' src="js/Line/bezier-curve.js"></script>
+
+    <script type='text/javascript' src="js/Shape/drawing-rectangle-hollow.js"></script>
+    <script type='text/javascript' src="js/Shape/drawing-rectangle.js"></script>
+    <script type='text/javascript' src="js/Shape/drawing-circle-hollow.js"></script>
+    <script type='text/javascript' src="js/Shape/drawing-circle.js"></script>
+
     <script type='text/javascript' src="js/eraser.js"></script>
-    <script type='text/javascript' src="insert-text.js"></script>
-    <script type='text/javascript' src="nib-boardEdge.js"></script>
-    <script type='text/javascript' src="nib-eEdge.js"></script>
-    <script type='text/javascript' src="color-picker.js"></script> 
+    <script type='text/javascript' src="js/color-picker.js"></script> 
 </body>
 </html>

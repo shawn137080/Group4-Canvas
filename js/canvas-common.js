@@ -2,9 +2,6 @@ let canvasReal = document.getElementById('canvas-real');
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById('canvas-draft');
 let contextDraft = canvasDraft.getContext('2d');
-/*let canvasDraft2 = document.getElementById('canvas-draft2');
-let contextDraft2 = nvasDraft2.getContext('2d');*/
-// let currentFunction, canva_log ;
 let dragging = false;
 let left = false;
 
@@ -74,32 +71,6 @@ $(window).mouseup(function(e){
     }
 });
 
-
-/*control points event
-$('.control_pt').mousedown(function(e){
-    let mouseX = e.currentTarget.offsetLeft - $('#canvas-draft2').offset().left;
-    let mouseY = e.currentTarget.offsetTop - $('#canvas-draft2').offset().top;
-    dragging = true;
-    currentFunction.onMouseDown([mouseX,mouseY],e);
-});
-$('.control_pt').mousemove(function(e){
-    if(dragging){
-        console.log(e);
-        let mouseX = e.currentTarget.offsetLeft - $('#canvas-draft2').offset().left;
-        let mouseY = e.currentTarget.offsetTop - $('#canvas-draft2').offset().top;
-        currentFunction.onDragging([mouseX,mouseY],e);
-    }
-    currentFunction.onMouseMove(e,this);
-});
-$('.control_pt').mouseup(function(e){
-    let mouseX = e.currentTarget.offsetLeft - $('#canvas-draft2').offset().left;
-    let mouseY = e.currentTarget.offsetTop - $('#canvas-draft2').offset().top;
-    dragging = false;
-    currentFunction.onMouseDown([mouseX,mouseY],e);
-});
-$('#finish').click(function(e){
-    currentFunction.onFinish();
-});*/
 $('#cancel').click(function(e){
     currentFunction.onCancel();
     dragging = false;
@@ -125,8 +96,6 @@ class PaintFunction{
     onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
-    //additional functionality
-    //onFinish(){}
     onCancel(){}
     onChange(){}
     onPrint(){}

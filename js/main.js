@@ -4,14 +4,6 @@ $(window).on('load', function(){
     let controlboardWidth = $('#control-board').width();
     let optionboxHeight = $('.option-box').height();
     
-
-    //Hiding current buttons or rotation
-    // $('#cancel').hide();
-    // $('#print').hide();
-    $('#rotate-slider-bar').hide();
-    $("#imagebrush-rotation-slider-bar").hide();
-    // $('#text-input').draggable().hide();
-    
     //Set the size for the canvas
     let canvas_width = ($(window).width()-controlboardWidth)*canvasCoverage;
     let canvas_width_margin = ($(window).width()-controlboardWidth)*(1-canvasCoverage)/2;
@@ -31,10 +23,6 @@ $(window).on('load', function(){
     contextReal.fill();
     contextDraft.restore();
 
-    let canvas_log = new ActionLog(contextReal,contextDraft);
-    
-
-
     $('#size-slider').slider({
         orientation: "horizontal",
         range: false,
@@ -49,94 +37,63 @@ $(window).on('load', function(){
             currentFunction.onChange(ui.value);
         }
     });
-
-    $('#rotate-slider').slider({
-        orientation: "horizontal",
-        range: false,
-        min: 0,
-        max: 359,
-        value: 0,
-        step: 1,
-        animate: true,
-        slide: function(event, ui){
-            $("#rotate_field").text(ui.value);
-            $("#rotate_field").val(ui.value);
-            currentFunction.onRotate(ui.value);
-        }
-    });
-
-    $('#imagebrush-rotation-slider').slider({
-        orientation: "horizontal",
-        range: false,
-        min: 0,
-        max: 90,
-        value: 0,
-        step: 5,
-        animate: true,
-        slide: function(event, ui){
-        $("#image_degree_field").text(ui.value);
-        $("#image_degree_field").val(ui.value);
-        currentFunction.onImageRotate(ui.value);
-        }  
-    });
     
-    $(window).click(()=>{
-        if (currentFunction.constructor.name !== "BoardEdge" && currentFunction.constructor.name !=="EEdge"){
-        $("#imagebrush-rotation-slider-bar").hide();
-        }    
-    })
     //drawing function
-    currentFunction = new DrawingLineSmooth(contextReal,contextDraft, canvas_log);
+    currentFunction = new DrawingLineSmooth(contextReal,contextDraft);
 
-    $('#drawing-rectangle-hollow').click(()=>{
-        currentFunction = new DrawingRectangleHollow(contextReal,contextDraft, canvas_log);
-    });
-    $('#drawing-rectangle').click(()=>{
-        currentFunction = new DrawingRectangle(contextReal,contextDraft, canvas_log);
-    });
     $('#drawing-line-smooth').click(()=>{
-        currentFunction = new DrawingLineSmooth(contextReal,contextDraft, canvas_log);
+        currentFunction = new DrawingLineSmooth(contextReal,contextDraft);
     });
+    $('#e-edge').click(()=>{
+        currentFunction = new EEdge(contextReal,contextDraft);
+        //function below has bugs 
+        $("#imagebrush-rotation-slider-bar").show()
+    });
+    $('#board-edge').click(()=>{
+        currentFunction = new BoardEdge(contextReal,contextDraft);
+        //function below has bugs 
+        $("#imagebrush-rotation-slider-bar").show()
+    });
+
     $('#draw-s-line3').click(()=>{
-        currentFunction = new Draw_S_Line3(contextReal,contextDraft, canvas_log);
+        currentFunction = new Draw_S_Line3(contextReal,contextDraft);
     });
     $('#quad-curve').click(()=>{
-        currentFunction = new Quad_Curve(contextReal,contextDraft, canvas_log);
+        currentFunction = new Quad_Curve(contextReal,contextDraft);
     });
     $('#bezier-curve').click(()=>{
-        currentFunction = new Bezier_Curve(contextReal,contextDraft, canvas_log);
+        currentFunction = new Bezier_Curve(contextReal,contextDraft);
+    });
+
+    $('#drawing-rectangle-hollow').click(()=>{
+        currentFunction = new DrawingRectangleHollow(contextReal,contextDraft);
+    });
+    $('#drawing-rectangle').click(()=>{
+        currentFunction = new DrawingRectangle(contextReal,contextDraft);
     });
     $('#drawing-circle-hollow').click(()=>{
         currentFunction = new DrawingCircleHollow(contextReal,contextDraft);
     });
     $('#drawing-circle').click(()=>{
-        currentFunction = new DrawingCircle(contextReal,contextDraft, canvas_log);
+        currentFunction = new DrawingCircle(contextReal,contextDraft);
     });
-    $('#e-edge').click(()=>{
-        currentFunction = new EEdge(contextReal,contextDraft, canvas_log);
-        //function below has bugs 
-        $("#imagebrush-rotation-slider-bar").show()
-    });
-    $('#board-edge').click(()=>{
-        currentFunction = new BoardEdge(contextReal,contextDraft, canvas_log);
-        //function below has bugs 
-        $("#imagebrush-rotation-slider-bar").show()
-    });
-    $('#insert-text').click(()=>{
-        currentFunction = new InsertText(contextReal,contextDraft, canvas_log);
-    });
+
     $('#eraser').click(()=>{
-        currentFunction = new Eraser(contextReal,contextDraft, canvas_log);
+        currentFunction = new Eraser(contextReal,contextDraft);
     });
+
     $('#selector').click(()=>{
-        currentFunction = new Selector(contextReal,contextDraft, canvas_log);
+        currentFunction = new Selector(contextReal,contextDraft);
     });
+
     $('#color-label').click(function(){
         $('#color-picker').show()
     });
+
     $('#color-label').dblclick(function(){
         $('#color-picker').hide()	
     });
+
     $('#clear').click(()=>{
         contextReal.save();
         contextReal.fillStyle = contextDraft.fillStyle = "#FFFFFF";
@@ -144,12 +101,7 @@ $(window).on('load', function(){
         contextReal.fill();
         contextReal.restore();
     });
-     $('#undo').click(()=>{
-       canvas_log.undo();
-    });
-    $('#redo').click(()=>{
-        canvas_log.redo();
-    });
+
     $(document).ready(function() {
 
         $('#brush-button').click(function(){
@@ -163,55 +115,15 @@ $(window).on('load', function(){
         });
 
     });
-     //Reset and hide input box when current function change
-
-    
-    /*$('#download').click(()=>{
-        var dt = canvasReal.toDataURL('image/jpeg');
-        this.href = dt;
-    });*/
-
-    //Unused functions below
-    /*
-    $('#drawing-rectangle').click(()=>{
-        currentFunction = new DrawingRectangle(contextReal,contextDraft);
-    });
-    $('#drawing-line').click(()=>{
-        currentFunction = new DrawingLine(contextReal,contextDraft);
-    });
-    $('#draw-s-line').click(()=>{
-        currentFunction = new Draw_S_Line(contextReal,contextDraft);
-    });
-    $('#draw-s-line2').click(()=>{
-        currentFunction = new Draw_S_Line2(contextReal,contextDraft,contextDraft2);
-    });
-    $('#drawing-circle').click(()=>{
-        currentFunction = new DrawingCircle(contextReal,contextDraft);
-    });
-    $('#print2').click(() =>{
-        let x = $('#draggable').position().left-50;
-        let y = $('#draggable').position().top-50;
-        let h = $('#image').height();
-        let w = $('#image').width();
-        let img = document.getElementById("image");
-        contextReal.drawImage(img,x,y, w, h);
-    });
-    */
 
 })
+
 //resize function - reset the canvas and clear the undo redo array
 $(window).on('resize', ()=>{
     
     let canvasCoverage = 0.7;
     let controlboardWidth = $('#control-board').width();
     let optionboxHeight = $('.option-box').height();
-    
-    //Hiding current buttons or rotation
-    // $('#cancel').hide();
-    // $('#print').hide();
-    $('#rotate-slider-bar').hide();
-    // $('#text-input').hide();
-    
 
     //Set the size for the canvas
     let canvas_width = ($(window).width()-controlboardWidth)*canvasCoverage;
