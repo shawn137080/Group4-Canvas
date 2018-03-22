@@ -3,7 +3,7 @@ class DrawingEllipse extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;  
-        this.canvas_log = canvas_log;
+        // this.canvas_log = canvas_log;
         this.startpt = {x:0, y:0};
         this.endpt = {x:0, y:0};
         this.prevCoord = {x:0, y:0};
@@ -91,11 +91,11 @@ class DrawingEllipse extends PaintFunction{
                                         (this.rotation)*Math.PI/180, 0, 2*Math.PI);
             if (this.border){this.contextReal.stroke();} //draw border if it is choosed
             if (this.fill){this.contextReal.fill();} //fill rect if it is choosed
-            this.canvas_log.saveState();
-            //reset all parameter
-            this.finish = this.phase_adjust = this.move = false;
-            this.border = true;
-            this.fill = false;
+            // this.canvas_log.saveState();
+            // //reset all parameter
+            // this.finish = this.phase_adjust = this.move = false;
+            // this.border = true;
+            // this.fill = false;
             //hide cancel and rotation panel
             $('#cancel').hide();
             $('#rotate-slider-bar').hide();
@@ -138,7 +138,7 @@ class DrawingEllipse extends PaintFunction{
                                     (this.rotation)*Math.PI/180, 0, 2*Math.PI);
         if (this.border){this.contextReal.stroke();} //draw border if it is choosed
         if (this.fill){this.contextReal.fill();} //fill rect if it is choosed
-        this.canvas_log.saveState();
+        // this.canvas_log.saveState();
 
         //clear the Draft canvas and redraw with new poistion
         this.cornerCP = {   1: {x: this.cornerCP['1'].x + 10 , y: this.cornerCP['1'].y + 10},
