@@ -61,6 +61,10 @@ $(window).on('load', function(){
         currentFunction = new Bezier_Curve(contextReal,contextDraft);
     });
 
+    $('#drawing-ellipse').click(()=>{
+        currentFunction = new DrawingEllipse (contextReal,contextDraft);
+    });
+
     $('#drawing-rectangle-hollow').click(()=>{
         currentFunction = new DrawingRectangleHollow(contextReal,contextDraft);
     });
