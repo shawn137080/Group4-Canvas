@@ -19,7 +19,7 @@ class DrawingEllipse extends PaintFunction{
         this.ellipseHeight = 0;
         this.border = true;
         this.fill = false;
-        this.move = false;
+        // this.move = false;
         this.rotation = 0;      
     }
     
@@ -39,13 +39,13 @@ class DrawingEllipse extends PaintFunction{
             this.checkCP(coord[0], coord[1]);
             this.endpt = {x:coord[0], y:coord[1]};
         }
-        if (!this.finish && !this.move){
-            this.prevCoord = {x:coord[0], y:coord[1]};
-            this.createCP();
-            this.drawEllipse();
-        } else if (this.move){
-            this.prevCoord = {x:coord[0], y:coord[1]};
-        }
+        // if (!this.finish && !this.move){
+        //     this.prevCoord = {x:coord[0], y:coord[1]};
+        //     this.createCP();
+        //     this.drawEllipse();
+        // } else if (this.move){
+        //     this.prevCoord = {x:coord[0], y:coord[1]};
+        // }
     }
 
     onDragging(coord,event){
@@ -57,7 +57,7 @@ class DrawingEllipse extends PaintFunction{
             this.drawEllipse();
             //this.drawLine();
         } else if (this.move){
-            this.moveEllipse();
+            // this.moveEllipse();
             this.prevCoord = {x:coord[0], y:coord[1]};
         }
     }
@@ -79,7 +79,7 @@ class DrawingEllipse extends PaintFunction{
             //this.drawLine();
             
         } else if (this.move){
-            this.moveEllipse();
+            // this.moveEllipse();
             this.prevCoord = {x:coord[0], y:coord[1]};
             this.move = false;
         } else{
@@ -230,18 +230,18 @@ class DrawingEllipse extends PaintFunction{
         this.contextDraft.restore();
     }*/
 
-    moveEllipse(){
-        //get the different between end point and prevCoord then move all 4 corners accordingly
-        console.log(`Moving from ${JSON.stringify(this.prevCoord)} to ${JSON.stringify(this.endpt)} `);
-        let x_change = this.endpt.x - this.prevCoord.x;
-        let y_change = this.endpt.y - this.prevCoord.y;
-        this.cornerCP = {   1: {x: this.cornerCP['1'].x + x_change , y: this.cornerCP['1'].y + y_change},
-                            2: {x: this.cornerCP['2'].x + x_change , y: this.cornerCP['2'].y + y_change},
-                            3: {x: this.cornerCP['3'].x + x_change , y: this.cornerCP['3'].y + y_change},
-                            4: {x: this.cornerCP['4'].x + x_change , y: this.cornerCP['4'].y + y_change}};
-        this.centre_pt = {x: this.centre_pt.x + x_change , y: this.centre_pt.y + y_change};
-        this.drawEllipse();
-    }
+    // moveEllipse(){
+    //     //get the different between end point and prevCoord then move all 4 corners accordingly
+    //     console.log(`Moving from ${JSON.stringify(this.prevCoord)} to ${JSON.stringify(this.endpt)} `);
+    //     let x_change = this.endpt.x - this.prevCoord.x;
+    //     let y_change = this.endpt.y - this.prevCoord.y;
+    //     this.cornerCP = {   1: {x: this.cornerCP['1'].x + x_change , y: this.cornerCP['1'].y + y_change},
+    //                         2: {x: this.cornerCP['2'].x + x_change , y: this.cornerCP['2'].y + y_change},
+    //                         3: {x: this.cornerCP['3'].x + x_change , y: this.cornerCP['3'].y + y_change},
+    //                         4: {x: this.cornerCP['4'].x + x_change , y: this.cornerCP['4'].y + y_change}};
+    //     this.centre_pt = {x: this.centre_pt.x + x_change , y: this.centre_pt.y + y_change};
+    //     this.drawEllipse();
+    // }
 
     drawEllipse(){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
@@ -353,14 +353,14 @@ class DrawingEllipse extends PaintFunction{
             this.contextDraft.lineTo(this.cornerCP['3'].x, this.cornerCP['3'].y);
             this.contextDraft.lineTo(this.cornerCP['4'].x, this.cornerCP['4'].y);
             this.contextDraft.closePath();
-            if (this.contextDraft.isPointInPath(x,y)){
-                this.move = true;
-                console.log('The box is ready to be moved');
-            } else{
+            // if (this.contextDraft.isPointInPath(x,y)){
+            //     this.move = true;
+            // //     console.log('The box is ready to be moved');
+            // } else{
                 console.log('Ready to end the value');
                 //if the mouse is not clicked inside the circle then end phase adjust and cancel
                 this.finish = true;
-            }
+            // }
         }
     }
 }
