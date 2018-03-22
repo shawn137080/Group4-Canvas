@@ -51,8 +51,8 @@ $(window).on('load', function(){
         currentFunction = new BoardEdge2(contextReal,contextDraft);
     });
 
-    $('#draw-s-line3').click(()=>{
-        currentFunction = new Draw_S_Line3(contextReal,contextDraft);
+    $('#drawing-line').click(()=>{
+        currentFunction = new DrawingLine(contextReal,contextDraft);
     });
     $('#quad-curve').click(()=>{
         currentFunction = new Quad_Curve(contextReal,contextDraft);
