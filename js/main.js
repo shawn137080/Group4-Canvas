@@ -45,14 +45,10 @@ $(window).on('load', function(){
         currentFunction = new DrawingLineSmooth(contextReal,contextDraft);
     });
     $('#e-edge').click(()=>{
-        currentFunction = new EEdge(contextReal,contextDraft);
-        //function below has bugs 
-        $("#imagebrush-rotation-slider-bar").show()
+        currentFunction = new EEdge2(contextReal,contextDraft);
     });
     $('#board-edge').click(()=>{
-        currentFunction = new BoardEdge(contextReal,contextDraft);
-        //function below has bugs 
-        $("#imagebrush-rotation-slider-bar").show()
+        currentFunction = new BoardEdge2(contextReal,contextDraft);
     });
 
     $('#draw-s-line3').click(()=>{
