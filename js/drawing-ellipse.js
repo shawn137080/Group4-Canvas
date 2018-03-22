@@ -19,7 +19,7 @@ class DrawingEllipse extends PaintFunction{
         this.ellipseHeight = 0;
         this.border = true;
         this.fill = false;
-        // this.move = false;
+        this.move = false;
         this.rotation = 0;      
     }
     
@@ -39,13 +39,13 @@ class DrawingEllipse extends PaintFunction{
             this.checkCP(coord[0], coord[1]);
             this.endpt = {x:coord[0], y:coord[1]};
         }
-        // if (!this.finish && !this.move){
-        //     this.prevCoord = {x:coord[0], y:coord[1]};
-        //     this.createCP();
-        //     this.drawEllipse();
-        // } else if (this.move){
-        //     this.prevCoord = {x:coord[0], y:coord[1]};
-        // }
+        if (!this.finish && !this.move){
+            this.prevCoord = {x:coord[0], y:coord[1]};
+            this.createCP();
+            this.drawEllipse();
+        } else if (this.move){
+            this.prevCoord = {x:coord[0], y:coord[1]};
+        }
     }
 
     onDragging(coord,event){
@@ -89,17 +89,19 @@ class DrawingEllipse extends PaintFunction{
             this.contextReal.beginPath();
             this.contextReal.ellipse(this.centre_pt.x, this.centre_pt.y, this.ellipseWidth, this.ellipseHeight, 
                                         (this.rotation)*Math.PI/180, 0, 2*Math.PI);
-            if (this.border){this.contextReal.stroke();} //draw border if it is choosed
-            if (this.fill){this.contextReal.fill();} //fill rect if it is choosed
+            // if (this.border){this.contextReal.stroke();} //draw border if it is choosed
+            // if (this.fill){this.contextReal.fill();} //fill rect if it is choosed
             // this.canvas_log.saveState();
             // //reset all parameter
-            // this.finish = this.phase_adjust = this.move = false;
+            this.finish = this.phase_adjust = this.move = false;
             // this.border = true;
             // this.fill = false;
             //hide cancel and rotation panel
-            $('#cancel').hide();
-            $('#rotate-slider-bar').hide();
-            $('#print').hide();
+            // $('#cancel').hide();
+            // $('#rotate-slider-bar').hide();
+            // $('#print').hide();
+            
+            
         }
         
     }
@@ -114,7 +116,7 @@ class DrawingEllipse extends PaintFunction{
     onFinish(){}
     onCancel(){
         console.log('cancelling');
-        this.finish = this.phase_adjust = this.move = false;
+        // this.finish = this.phase_adjust = this.move = false;
         this.border = true;
         this.fill = false;
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
@@ -353,14 +355,14 @@ class DrawingEllipse extends PaintFunction{
             this.contextDraft.lineTo(this.cornerCP['3'].x, this.cornerCP['3'].y);
             this.contextDraft.lineTo(this.cornerCP['4'].x, this.cornerCP['4'].y);
             this.contextDraft.closePath();
-            // if (this.contextDraft.isPointInPath(x,y)){
-            //     this.move = true;
-            // //     console.log('The box is ready to be moved');
-            // } else{
+            if (this.contextDraft.isPointInPath(x,y)){
+                this.move = true;
+                console.log('The box is ready to be moved');
+            } else{
                 console.log('Ready to end the value');
                 //if the mouse is not clicked inside the circle then end phase adjust and cancel
                 this.finish = true;
-            // }
+            }
         }
     }
 }
