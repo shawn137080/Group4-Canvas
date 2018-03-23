@@ -139,42 +139,42 @@ $(window).on('resize', () => {
 
     //Set the size for the canvas
     console.log($(window).width());
-    if ($(window).width() < 992) {
+    // if ($(window).width() < 992) {
         
-        let canvas_width = 768;
-        let canvas_width_margin = ($(window).width() - controlboardWidth) * (1 - canvasCoverage) / 4;
-        let canvas_height_margin = ($(window).height() - optionboxHeight) * (1 - canvasCoverage) / 4;
-        let canvas_height = 600;
+    //     let canvas_width = 768;
+    //     let canvas_width_margin = ($(window).width() - controlboardWidth) * (1 - canvasCoverage) / 4;
+    //     let canvas_height_margin = ($(window).height() - optionboxHeight) * (1 - canvasCoverage) / 4;
+    //     let canvas_height = 600;
     
-        $("#canvas-real")[0].width = $("#canvas-draft")[0].width = canvas_width;
-        $("#canvas-real")[0].height = $("#canvas-draft")[0].height = canvas_height;
-        $("#canvas-real").css({
-            marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
-            marginTop: `${canvas_height_margin + optionboxHeight}px`
-        });
-        $("#canvas-draft").css({
-            marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
-            marginTop: `${canvas_height_margin + optionboxHeight}px`
-        });
+    //     $("#canvas-real")[0].width = $("#canvas-draft")[0].width = canvas_width;
+    //     $("#canvas-real")[0].height = $("#canvas-draft")[0].height = canvas_height;
+    //     $("#canvas-real").css({
+    //         marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
+    //         marginTop: `${canvas_height_margin + optionboxHeight}px`
+    //     });
+    //     $("#canvas-draft").css({
+    //         marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
+    //         marginTop: `${canvas_height_margin + optionboxHeight}px`
+    //     });
     
-        //Clear Real canvas screen
-        contextReal.clearRect(0, 0, $('#canvas-real').width(), $('#canvas-real').height());
-    } else {
-        let canvas_width = 1200;
-        let canvas_width_margin = ($(window).width() - controlboardWidth) * (1 - canvasCoverage) / 4;
-        let canvas_height_margin = ($(window).height() - optionboxHeight) * (1 - canvasCoverage) / 4;
-        let canvas_height = 600;
+    //     //Clear Real canvas screen
+    //     contextReal.clearRect(0, 0, $('#canvas-real').width(), $('#canvas-real').height());
+    // } else {
+    //     let canvas_width = 1200;
+    //     let canvas_width_margin = ($(window).width() - controlboardWidth) * (1 - canvasCoverage) / 4;
+    //     let canvas_height_margin = ($(window).height() - optionboxHeight) * (1 - canvasCoverage) / 4;
+    //     let canvas_height = 600;
     
-        $("#canvas-real")[0].width = $("#canvas-draft")[0].width = canvas_width;
-        $("#canvas-real")[0].height = $("#canvas-draft")[0].height = canvas_height;
-        $("#canvas-real").css({
-            marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
-            marginTop: `${canvas_height_margin + optionboxHeight}px`
-        });
-        $("#canvas-draft").css({
-            marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
-            marginTop: `${canvas_height_margin + optionboxHeight}px`
-        });
+    //     $("#canvas-real")[0].width = $("#canvas-draft")[0].width = canvas_width;
+    //     $("#canvas-real")[0].height = $("#canvas-draft")[0].height = canvas_height;
+    //     $("#canvas-real").css({
+    //         marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
+    //         marginTop: `${canvas_height_margin + optionboxHeight}px`
+    //     });
+    //     $("#canvas-draft").css({
+    //         marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
+    //         marginTop: `${canvas_height_margin + optionboxHeight}px`
+    //     });
     
         // let canvas_width = 800;
         // let canvas_width_margin = ($(window).width()-controlboardWidth)*(1-canvasCoverage)/4;
@@ -195,8 +195,8 @@ $(window).on('resize', () => {
         // });
     
         // Clear Real canvas screen
-        contextReal.clearRect(0, 0, $('#canvas-real').width(), $('#canvas-real').height());
-    }
+    //     contextReal.clearRect(0, 0, $('#canvas-real').width(), $('#canvas-real').height());
+    // }
 
         // let canvas_width = ($(window).width() - controlboardWidth) * canvasCoverage;
         // let canvas_width_margin = ($(window).width() - controlboardWidth) * (1 - canvasCoverage) / 4;
@@ -210,24 +210,24 @@ $(window).on('resize', () => {
     //     let canvas_height_margin = ($(window).height() - optionboxHeight) * (1 - canvasCoverage) / 4;
     //     let canvas_height = ($(window).height() - optionboxHeight) * 0.6;
     // }
-    // let canvas_width = ($(window).width()-controlboardWidth)*canvasCoverage;
-    // let canvas_width_margin = ($(window).width()-controlboardWidth)*(1-canvasCoverage)/4;
-    // let canvas_height_margin = ($(window).height()-optionboxHeight)*(1-canvasCoverage)/4;
-    // let canvas_height = ($(window).height()-optionboxHeight)*canvasCoverage;
+    let canvas_width = ($(window).width()-controlboardWidth)*canvasCoverage;
+    let canvas_width_margin = ($(window).width()-controlboardWidth)*(1-canvasCoverage)/4;
+    let canvas_height_margin = ($(window).height()-optionboxHeight)*(1-canvasCoverage)/4;
+    let canvas_height = ($(window).height()-optionboxHeight)*canvasCoverage;
 
 
 
-    // $("#canvas-real")[0].width = $("#canvas-draft")[0].width = canvas_width;
-    // $("#canvas-real")[0].height = $("#canvas-draft")[0].height = canvas_height;
-    // $("#canvas-real").css({
-    //     marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
-    //     marginTop: `${canvas_height_margin + optionboxHeight}px`
-    // });
-    // $("#canvas-draft").css({
-    //     marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
-    //     marginTop: `${canvas_height_margin + optionboxHeight}px`
-    // });
+    $("#canvas-real")[0].width = $("#canvas-draft")[0].width = canvas_width;
+    $("#canvas-real")[0].height = $("#canvas-draft")[0].height = canvas_height;
+    $("#canvas-real").css({
+        marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
+        marginTop: `${canvas_height_margin + optionboxHeight}px`
+    });
+    $("#canvas-draft").css({
+        marginLeft: `${canvas_width_margin  + controlboardWidth}px`,
+        marginTop: `${canvas_height_margin + optionboxHeight}px`
+    });
 
-    //Clear Real canvas screen
-    // contextReal.clearRect(0, 0, $('#canvas-real').width(), $('#canvas-real').height());
+    // Clear Real canvas screen
+    contextReal.clearRect(0, 0, $('#canvas-real').width(), $('#canvas-real').height());
 });
